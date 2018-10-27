@@ -19,7 +19,7 @@ if (title && title.innerText) {
 }
 
 // Fixme: Repace this with CSS.
-const offset = `${window.screen.availHeight / 2 - 256}px`;
+const offset = `${window.screen.availHeight / 2 - 128}px`;
 document.getElementById('frame-1').style.top = offset;
 document.getElementById('frame-2').style.top = offset;
 document.getElementById('frame-3').style.top = offset;
