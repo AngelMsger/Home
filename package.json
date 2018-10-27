@@ -4,13 +4,13 @@
   "description": "Homepage of AngelMsger.Com.",
   "main": "index.html",
   "dependencies": {
-    "acorn": "^6.0.2",
     "animejs": "^2.2.0",
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "acorn": "^6.0.2",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
     "cssnano": "^4.1.7",
