@@ -1,5 +1,7 @@
 # Home
 Homepage of [AngelMsger](https://angelmsger.com).
+
+[![Build Status](https://travis-ci.org/AngelMsger/Home.svg?branch=master)](https://travis-ci.org/AngelMsger/Home)
 ---
 
 # Overview
