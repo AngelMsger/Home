@@ -1,0 +1,51 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "Homepage of AngelMsger.Com.",
+  "main": "index.html",
+  "dependencies": {
+    "acorn": "^6.0.2",
+    "animejs": "^2.2.0",
+    "particles.js": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.0",
+    "cssnano": "^4.1.7",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.2.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AngelMsger/Home.git"
+  },
+  "keywords": [
+    "Homepage",
+    "AngelMsger"
+  ],
+  "author": "AngelMsger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AngelMsger/Home/issues"
+  },
+  "homepage": "https://github.com/AngelMsger/Home#readme"
+}
