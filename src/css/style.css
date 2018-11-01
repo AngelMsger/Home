@@ -1,6 +1,6 @@
 /* Global */
 body {
-    background-color: lightgray;
+    background-color: black;
     font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", "PingFang SC", "'Hiragino Sans GB", STHeiti,
     "Microsoft Yahei", "Source Han Sans SC", "Noto Sans CJK SC",
@@ -21,24 +21,23 @@ body {
 }
 
 /* Mask */
-#frames {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+#mask-wrapper {
+    position: absolute;
+    top: 50%;
     width: 100%;
-    height: 100%;
+    height: 256px;
+    overflow: hidden;
+    mask-image: none;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
     background-color: black;
     color: white;
     font-weight: 900;
     font-size: 4.5em;
+    transform: translateY(-128px);
 }
 
-#frames .frame {
+#mask {
     position: absolute;
-    right: 0;
-    left: 0;
     opacity: 0;
     width: 100%;
     height: 256px;
@@ -67,17 +66,17 @@ body {
 /* Container */
 #container {
     position: absolute;
-    height: 512px;
-    width: 512px;
+    height: 480px;
+    width: 410px;
     top: 50%;
     left: 50%;
-    transform: translate(-256px, -340px);
+    transform: translate(-205px, -280px);
 }
 
 /* Avatar */
 .avatar-wrapper {
-    height: 196px;
-    width: 196px;
+    height: 148px;
+    width: 148px;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -88,8 +87,8 @@ body {
 }
 
 .avatar {
-    height: 196px;
-    width: 196px;
+    height: 148px;
+    width: 148px;
     background-image: url(../img/avatar.jpg);
     background-size: cover;
     transition-duration: 0.5s;
@@ -125,12 +124,12 @@ body {
 /* Links */
 .left {
     position: absolute;
-    left: 0;
+    left: 8px;
 }
 
 .right {
     position: absolute;
-    right: 0;
+    right: 8px;
 }
 
 .button-group {
@@ -139,8 +138,8 @@ body {
 
 .button {
     display: inline-block;
-    margin: 8px;
-    width: 230px;
+    margin: 8px 4px;
+    width: 178px;
     height: 56px;
     line-height: 56px;
     text-align: center;

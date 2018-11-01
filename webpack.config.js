@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: './src/js/home.js',
+  entry: ['babel-polyfill', './src/js/home.js'],
   output: {
     filename: 'home.min.js',
     path: path.resolve(__dirname, 'dist'),

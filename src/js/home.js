@@ -18,76 +18,48 @@ if (title && title.innerText) {
   title.innerHTML = letterWrappers.join('\n');
 }
 
-// Fixme: Repace this with CSS.
-const offset = `${window.screen.availHeight / 2 - 128}px`;
-document.getElementById('frame-1').style.top = offset;
-document.getElementById('frame-2').style.top = offset;
-document.getElementById('frame-3').style.top = offset;
+async function frame(slogans, i) {
+  document.getElementById('mask').innerHTML = slogans[i];
+  await anime({
+    targets: '#mask',
+    opacity: [0, 1],
+    scale: [0.2, 1],
+    duration: 800,
+  }).finished;
+  await anime({
+    targets: '#mask',
+    opacity: 0,
+    scale: 3,
+    duration: 600,
+    easing: 'easeInExpo',
+    delay: 500,
+  }).finished;
+  const next = i + 1;
+  if (next < slogans.length) {
+    await frame(slogans, next);
+  } else {
+    const wrapper = document.getElementById('mask-wrapper');
+    wrapper.parentElement.removeChild(wrapper);
+  }
+}
 
-const frames = {
-  opacityIn: [0, 1],
-  scaleIn: [0.2, 1],
-  scaleOut: 3,
-  durationIn: 800,
-  durationOut: 600,
-  delay: 500,
-};
+async function load() {
+  const slogans = ['Dream...', 'and', 'Go!'];
+  await frame(slogans, 0);
+  document.body.style.backgroundColor = 'lightgray';
+  anime.timeline({ loop: false })
+    .add({
+      targets: '#content',
+      opacity: 100,
+      duration: 5,
+    })
+    .add({
+      targets: '#title>.letter',
+      scale: [0, 1],
+      duration: 1500,
+      elasticity: 600,
+      delay: (_, i) => 45 * (i + 1),
+    });
+}
 
-anime.timeline({ loop: false })
-  .add({
-    targets: '#frame-1',
-    opacity: frames.opacityIn,
-    scale: frames.scaleIn,
-    duration: frames.durationIn,
-  }).add({
-    targets: '#frame-1',
-    opacity: 0,
-    scale: frames.scaleOut,
-    duration: frames.durationOut,
-    easing: 'easeInExpo',
-    delay: frames.delay,
-  }).add({
-    targets: '#frame-2',
-    opacity: frames.opacityIn,
-    scale: frames.scaleIn,
-    duration: frames.durationIn,
-  })
-  .add({
-    targets: '#frame-2',
-    opacity: 0,
-    scale: frames.scaleOut,
-    duration: frames.durationOut,
-    easing: 'easeInExpo',
-    delay: frames.delay,
-  })
-  .add({
-    targets: '#frame-3',
-    opacity: frames.opacityIn,
-    scale: frames.scaleIn,
-    duration: frames.durationIn,
-  })
-  .add({
-    targets: '#frame-3',
-    opacity: 0,
-    scale: frames.scaleOut,
-    duration: frames.durationOut,
-    easing: 'easeInExpo',
-    delay: frames.delay,
-  })
-  .add({
-    targets: '#frames',
-    opacity: 0,
-    duration: 5,
-  })
-  .add({
-    targets: '#content',
-    opacity: 100,
-    duration: 5,
-  })
-  .add({
-    targets: '#title>.letter',
-    scale: [0, 1],
-    duration: 1500,
-    elasticity: 600,
-    delay: (el, i) => 45 * (i + 1),
-  });
+load();
